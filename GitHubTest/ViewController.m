@@ -20,7 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    NSString *requestString = @"https://api.github.com/repositories";
+    NSString *requestString = @"https://api.github.com/user/repos";
     NSURL *url = [NSURL URLWithString:requestString];
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
     
@@ -29,7 +29,7 @@
     NSString *authString = [NSString stringWithFormat:@"Basic %@", base64EncodedCredential];
     
     NSURLSessionConfiguration *sessionConfig=[NSURLSessionConfiguration defaultSessionConfiguration];
-    //sessionConfig.HTTPAdditionalHeaders=@{@"Authorization":authString};
+    sessionConfig.HTTPAdditionalHeaders=@{@"Authorization":authString};
     
     self.session=[NSURLSession sessionWithConfiguration:sessionConfig];
     
