@@ -139,7 +139,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="29"/>
                                 <segments>
                                     <segment title="Contents"/>
-                                    <segment title="Comments"/>
+                                    <segment title="Commits"/>
                                 </segments>
                                 <connections>
                                     <action selector="didSelectSegment:" destination="kao-Fb-rdE" eventType="valueChanged" id="ccd-3X-BwI"/>
@@ -179,13 +179,13 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommentsCell" rowHeight="88" id="OQm-co-CuA">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommitsCell" rowHeight="120" id="OQm-co-CuA">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OQm-co-CuA" id="hyy-Dm-DMs">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cH2-QH-2p7">
-                                                    <rect key="frame" x="15" y="0.0" width="305" height="87"/>
+                                                    <rect key="frame" x="15" y="0.0" width="305" height="119"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>

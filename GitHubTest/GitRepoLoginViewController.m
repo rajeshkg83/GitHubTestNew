@@ -98,7 +98,7 @@ static NSString * const BaseURLString = @"https://api.github.com/";
     else
         self.accessType = @"repositories";
     
-    if (self.userNameTextField.text.length > 0 && self.passwordTextField.text.length > 0)
+    if ([self.userNameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length > 0 && [self.passwordTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length > 0)
     {
         [self.userNameTextField resignFirstResponder];
         [self.passwordTextField resignFirstResponder];
@@ -106,7 +106,10 @@ static NSString * const BaseURLString = @"https://api.github.com/";
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"User name and Password must be entered." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        self.userNameTextField.text = @"";
+        self.passwordTextField.text = @"";
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"User Name and Password must be entered." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }
 }

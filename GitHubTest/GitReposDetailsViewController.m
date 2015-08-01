@@ -20,7 +20,7 @@
 typedef enum
 {
     kContentsType = 0,
-    kCommentsType = 1
+    kCommitsType = 1
     
 } DetailsType;
 
@@ -73,17 +73,22 @@ typedef enum
 
         return cell;
     }
-    if (self.detailsSegment.selectedSegmentIndex == kCommentsType)
+    if (self.detailsSegment.selectedSegmentIndex == kCommitsType)
     {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentsCell" forIndexPath:indexPath];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommitsCell" forIndexPath:indexPath];
         NSDictionary *dict = [self.details objectAtIndex:indexPath.row];
-        NSString *comment = [dict objectForKey:@"body"];
-        
-        UILabel *commentLabel = (UILabel *)[cell.contentView viewWithTag:10];
-        NSMutableAttributedString * commentString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Comment %d: \n%@",indexPath.row+1, comment]];
-        NSRange range = [[commentString string] rangeOfString:@":"];
-        [commentString addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0,range.location+1)];
-        commentLabel.attributedText = commentString;
+        NSDictionary *commitDict = [dict objectForKey:@"commit"];
+        NSDictionary *committerDict = [commitDict objectForKey:@"committer"];
+        NSString *committer = [NSString stringWithFormat:@"Name:       %@",[committerDict objectForKey:@"name"]];
+        NSString *committedDate = [NSString stringWithFormat:@"Date:         %@",[committerDict objectForKey:@"date"]];
+        NSString *message = [NSString stringWithFormat:@"Message:  %@",[commitDict objectForKey:@"message"]];
+        NSString *commit = [NSString stringWithFormat:@"%@\n%@\n%@",committer,committedDate,message];
+
+        UILabel *commitLabel = (UILabel *)[cell.contentView viewWithTag:10];
+        NSMutableAttributedString * commitString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"Commit %ld: \n%@",indexPath.row+1, commit]];
+        NSRange range = [[commitString string] rangeOfString:@":"];
+        [commitString addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0,range.location+1)];
+        commitLabel.attributedText = commitString;
         
         return cell;
     }
@@ -106,8 +111,8 @@ typedef enum
         case kContentsType:
             return 66;
             break;
-        case kCommentsType:
-            return 88;
+        case kCommitsType:
+            return 120;
             break;
         default:
             break;
@@ -139,9 +144,9 @@ typedef enum
             detailsType = @"contents";
             urlString = [self.repoInfo objectForKey:@"contents_url"];
             break;
-        case kCommentsType:
-            detailsType = @"comments";
-            urlString = [self.repoInfo objectForKey:@"comments_url"];
+        case kCommitsType:
+            detailsType = @"commits";
+            urlString = [self.repoInfo objectForKey:@"commits_url"];
             break;
         default:
             break;
