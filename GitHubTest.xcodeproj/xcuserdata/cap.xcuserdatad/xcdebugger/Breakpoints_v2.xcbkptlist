@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GitHubTest/ViewController.m"
-            timestampString = "460038834.60339"
+            timestampString = "460152646.753517"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "-fetchUserRepos"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GitHubTest/ViewController.m"
-            timestampString = "460039494.409245"
+            filePath = "GitHubTest/ReposDetailsViewController.m"
+            timestampString = "460150322.277803"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "-fetchDetailsOfType:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GitHubTest/ViewController.m"
-            timestampString = "460039494.409245"
+            filePath = "GitHubTest/ReposDetailsViewController.m"
+            timestampString = "460150322.277803"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "-fetchDetailsOfType:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GitHubTest/ReposDetailsViewController.m"
+            timestampString = "460150322.277803"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "-fetchDetailsOfType:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

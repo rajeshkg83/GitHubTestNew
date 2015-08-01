@@ -2,15 +2,21 @@
 //  ViewController.m
 //  GitHubTest
 //
-//  Created by Cap on 7/31/15.
+//  Created by Cap on 8/1/15.
 //  Copyright (c) 2015 Cap. All rights reserved.
 //
 
 #import "ViewController.h"
+#import "ReposListViewController.h"
 
 @interface ViewController ()
 
 @property (nonatomic , strong) NSURLSession *session;
+@property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (strong, nonatomic) NSString *accessType;
+
+- (IBAction)signInAction:(id)sender;
 
 @end
 
@@ -21,74 +27,14 @@ static NSString * const BaseURLString = @"https://api.github.com/";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    /*
-    NSString *requestString = @"https://api.github.com/user/repos";
-    NSURL *url = [NSURL URLWithString:requestString];
-    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
-    NSData *userPasswordData = [[NSString stringWithFormat:@"%@:%@", @"rajeshkg83", @"#pragop123"] dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *base64EncodedCredential = [userPasswordData base64EncodedStringWithOptions:0];
-    NSString *authString = [NSString stringWithFormat:@"Basic %@", base64EncodedCredential];
-    
-    NSURLSessionConfiguration *sessionConfig=[NSURLSessionConfiguration defaultSessionConfiguration];
-    sessionConfig.HTTPAdditionalHeaders=@{@"Authorization":authString};
-    
-    self.session=[NSURLSession sessionWithConfiguration:sessionConfig];
-    
-    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        NSString *strData = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"%@", strData);
-    }];
-    
-    [dataTask resume];
-    */
-    NSString *string = [NSString stringWithFormat:@"%@user/repos", BaseURLString];
-    NSURL *url = [NSURL URLWithString:string];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
-    // 2
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:BaseURLString]];
-    
-    NSData *userPasswordData = [[NSString stringWithFormat:@"%@:%@", @"rajeshkg83", @"#pragop123"] dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *base64EncodedCredential = [userPasswordData base64EncodedStringWithOptions:0];
-    NSString *authString = [NSString stringWithFormat:@"Basic %@", base64EncodedCredential];
-    sessionManager.session.configuration.HTTPAdditionalHeaders = @{@"Authorization":authString};
-    sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    [sessionManager GET:@"user/repos" parameters:nil success:^(NSURLSessionDataTask * task, id responseObject) {
-        NSLog(@"%@",responseObject);
-    } failure:^(NSURLSessionDataTask * task, NSError *error) {
-        
-        NSLog(@"%@",error.description);
-    }];
-    
-//    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        
-//        NSDictionary *dict = (NSDictionary *)responseObject;
-//        
-//        NSLog(@"%@",[dict description]);
-//        // 3
-////        self.weather = (NSDictionary *)responseObject;
-////        self.title = @"JSON Retrieved";
-////        [self.tableView reloadData];
-//        
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        
-//        // 4
-//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather"
-//                                                            message:[error localizedDescription]
-//                                                           delegate:nil
-//                                                  cancelButtonTitle:@"Ok"
-//                                                  otherButtonTitles:nil];
-//        [alertView show];
-//    }];
-//    
-//    // 5
-//    [operation start];
-    
+    self.userNameTextField.text = @"";
+    self.passwordTextField.text = @"";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -96,4 +42,72 @@ static NSString * const BaseURLString = @"https://api.github.com/";
     // Dispose of any resources that can be recreated.
 }
 
+-(void)fetchUserRepos
+{
+    [MBProgressHUD showHUDAddedTo:[[UIApplication sharedApplication] keyWindow] animated:YES];
+
+    NSString *userName = self.userNameTextField.text;
+    NSString *password = self.passwordTextField.text;
+    
+    AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:BaseURLString]];
+
+    NSData *userPasswordData = [[NSString stringWithFormat:@"%@:%@", userName, password] dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *base64EncodedCredential = [userPasswordData base64EncodedStringWithOptions:0];
+    NSString *authString = [NSString stringWithFormat:@"Basic %@", base64EncodedCredential];
+    sessionManager.session.configuration.HTTPAdditionalHeaders = @{@"Authorization":authString};
+    sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
+
+    [sessionManager GET:self.accessType parameters:nil success:^(NSURLSessionDataTask * task, id responseObject) {
+        [MBProgressHUD hideHUDForView:[[UIApplication sharedApplication] keyWindow] animated:YES];
+        NSLog(@"%@",responseObject);
+        NSArray *repos = (NSArray *)responseObject;
+
+        if (repos.count)
+        {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            ReposListViewController *reposListViewController = [storyboard instantiateViewControllerWithIdentifier:@"ReposListViewController"];
+            reposListViewController.reposList = repos;
+            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:reposListViewController];
+            [self presentViewController:navController animated:YES completion:^{
+                
+            }];
+            
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"No repositories found" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alert show];
+        }
+        
+    } failure:^(NSURLSessionDataTask * task, NSError *error) {
+
+        [MBProgressHUD hideHUDForView:[[UIApplication sharedApplication] keyWindow] animated:YES];
+        NSLog(@"%@",error.description);
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Authentication Failed" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }];
+    
+}
+
+- (IBAction)signInAction:(id)sender {
+    
+    UIButton *button = (UIButton *)sender;
+    
+    if (button.tag == 10)
+        self.accessType = @"user/repos";
+    else
+        self.accessType = @"repositories";
+    
+    if (self.userNameTextField.text.length > 0 && self.passwordTextField.text.length > 0)
+    {
+        [self.userNameTextField resignFirstResponder];
+        [self.passwordTextField resignFirstResponder];
+        [self fetchUserRepos];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"User name and Password must be entered." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
+}
 @end
