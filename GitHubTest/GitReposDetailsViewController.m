@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Cap. All rights reserved.
 //
 
-#import "ReposDetailsViewController.h"
+#import "GitReposDetailsViewController.h"
 
-@interface ReposDetailsViewController ()
+@interface GitReposDetailsViewController ()
 
 @property (nonatomic, strong) NSArray *details;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *detailsSegment;
@@ -25,7 +25,7 @@ typedef enum
 } DetailsType;
 
 
-@implementation ReposDetailsViewController
+@implementation GitReposDetailsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

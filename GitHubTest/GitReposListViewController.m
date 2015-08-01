@@ -6,14 +6,14 @@
 //  Copyright (c) 2015 Cap. All rights reserved.
 //
 
-#import "ReposListViewController.h"
-#import "ReposDetailsViewController.h"
+#import "GitReposListViewController.h"
+#import "GitReposDetailsViewController.h"
 
-@interface ReposListViewController ()
+@interface GitReposListViewController ()
 
 @end
 
-@implementation ReposListViewController
+@implementation GitReposListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -70,7 +70,7 @@
     NSDictionary *dict = [self.reposList objectAtIndex:indexPath.row];
 
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ReposDetailsViewController *reposDetailsViewController = [storyboard instantiateViewControllerWithIdentifier:@"ReposDetailsViewController"];
+    GitReposDetailsViewController *reposDetailsViewController = [storyboard instantiateViewControllerWithIdentifier:@"ReposDetailsViewController"];
     reposDetailsViewController.repoInfo = dict;
     [self.navigationController pushViewController:reposDetailsViewController animated:YES];
 

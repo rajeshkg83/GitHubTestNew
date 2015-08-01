@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ReposDetailsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface GitReposDetailsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSDictionary *repoInfo;
 

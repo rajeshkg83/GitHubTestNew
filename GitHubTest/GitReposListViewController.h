@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ReposListViewController : UITableViewController
+@interface GitReposListViewController : UITableViewController
 
 @property (nonatomic, strong) NSArray *reposList;
 

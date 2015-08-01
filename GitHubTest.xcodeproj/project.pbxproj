@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3E291B7B1B6AAB15004B7C38 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E291B7A1B6AAB15004B7C38 /* main.m */; };
 		3E291B7E1B6AAB15004B7C38 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E291B7D1B6AAB15004B7C38 /* AppDelegate.m */; };
-		3E291B811B6AAB15004B7C38 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E291B801B6AAB15004B7C38 /* ViewController.m */; };
+		3E291B811B6AAB15004B7C38 /* GitRepoLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E291B801B6AAB15004B7C38 /* GitRepoLoginViewController.m */; };
 		3E291B841B6AAB15004B7C38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E291B821B6AAB15004B7C38 /* Main.storyboard */; };
 		3E291B861B6AAB15004B7C38 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E291B851B6AAB15004B7C38 /* Images.xcassets */; };
 		3E291B891B6AAB15004B7C38 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E291B871B6AAB15004B7C38 /* LaunchScreen.xib */; };
@@ -32,8 +32,8 @@
 		3EB6A3A61B6B8F03001C6235 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EB6A3941B6B8F03001C6235 /* UIRefreshControl+AFNetworking.m */; };
 		3EB6A3A71B6B8F03001C6235 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EB6A3961B6B8F03001C6235 /* UIWebView+AFNetworking.m */; };
 		3EF3D6911B6D2E6B002C5C75 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF3D6901B6D2E6B002C5C75 /* MBProgressHUD.m */; };
-		3EF3D6941B6D38CE002C5C75 /* ReposListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF3D6931B6D38CE002C5C75 /* ReposListViewController.m */; };
-		3EF3D6971B6D3E16002C5C75 /* ReposDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF3D6961B6D3E16002C5C75 /* ReposDetailsViewController.m */; };
+		3EF3D6941B6D38CE002C5C75 /* GitReposListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF3D6931B6D38CE002C5C75 /* GitReposListViewController.m */; };
+		3EF3D6971B6D3E16002C5C75 /* GitReposDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF3D6961B6D3E16002C5C75 /* GitReposDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +52,8 @@
 		3E291B7A1B6AAB15004B7C38 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3E291B7C1B6AAB15004B7C38 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3E291B7D1B6AAB15004B7C38 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3E291B7F1B6AAB15004B7C38 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3E291B801B6AAB15004B7C38 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3E291B7F1B6AAB15004B7C38 /* GitRepoLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GitRepoLoginViewController.h; sourceTree = "<group>"; };
+		3E291B801B6AAB15004B7C38 /* GitRepoLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GitRepoLoginViewController.m; sourceTree = "<group>"; };
 		3E291B831B6AAB15004B7C38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3E291B851B6AAB15004B7C38 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3E291B881B6AAB15004B7C38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -100,10 +100,10 @@
 		3EB6A3961B6B8F03001C6235 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		3EF3D68F1B6D2E6B002C5C75 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		3EF3D6901B6D2E6B002C5C75 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		3EF3D6921B6D38CE002C5C75 /* ReposListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReposListViewController.h; sourceTree = "<group>"; };
-		3EF3D6931B6D38CE002C5C75 /* ReposListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReposListViewController.m; sourceTree = "<group>"; };
-		3EF3D6951B6D3E16002C5C75 /* ReposDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReposDetailsViewController.h; sourceTree = "<group>"; };
-		3EF3D6961B6D3E16002C5C75 /* ReposDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReposDetailsViewController.m; sourceTree = "<group>"; };
+		3EF3D6921B6D38CE002C5C75 /* GitReposListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitReposListViewController.h; sourceTree = "<group>"; };
+		3EF3D6931B6D38CE002C5C75 /* GitReposListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitReposListViewController.m; sourceTree = "<group>"; };
+		3EF3D6951B6D3E16002C5C75 /* GitReposDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitReposDetailsViewController.h; sourceTree = "<group>"; };
+		3EF3D6961B6D3E16002C5C75 /* GitReposDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitReposDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,12 +151,12 @@
 				3EF3D6901B6D2E6B002C5C75 /* MBProgressHUD.m */,
 				3E291B7C1B6AAB15004B7C38 /* AppDelegate.h */,
 				3E291B7D1B6AAB15004B7C38 /* AppDelegate.m */,
-				3E291B7F1B6AAB15004B7C38 /* ViewController.h */,
-				3E291B801B6AAB15004B7C38 /* ViewController.m */,
-				3EF3D6921B6D38CE002C5C75 /* ReposListViewController.h */,
-				3EF3D6931B6D38CE002C5C75 /* ReposListViewController.m */,
-				3EF3D6951B6D3E16002C5C75 /* ReposDetailsViewController.h */,
-				3EF3D6961B6D3E16002C5C75 /* ReposDetailsViewController.m */,
+				3E291B7F1B6AAB15004B7C38 /* GitRepoLoginViewController.h */,
+				3E291B801B6AAB15004B7C38 /* GitRepoLoginViewController.m */,
+				3EF3D6921B6D38CE002C5C75 /* GitReposListViewController.h */,
+				3EF3D6931B6D38CE002C5C75 /* GitReposListViewController.m */,
+				3EF3D6951B6D3E16002C5C75 /* GitReposDetailsViewController.h */,
+				3EF3D6961B6D3E16002C5C75 /* GitReposDetailsViewController.m */,
 				3E291B821B6AAB15004B7C38 /* Main.storyboard */,
 				3E291B851B6AAB15004B7C38 /* Images.xcassets */,
 				3E291B871B6AAB15004B7C38 /* LaunchScreen.xib */,
@@ -345,13 +345,13 @@
 			files = (
 				3EB6A3971B6B8F03001C6235 /* AFHTTPRequestOperation.m in Sources */,
 				3EB6A3A41B6B8F03001C6235 /* UIImageView+AFNetworking.m in Sources */,
-				3E291B811B6AAB15004B7C38 /* ViewController.m in Sources */,
+				3E291B811B6AAB15004B7C38 /* GitRepoLoginViewController.m in Sources */,
 				3EB6A3981B6B8F03001C6235 /* AFHTTPRequestOperationManager.m in Sources */,
-				3EF3D6941B6D38CE002C5C75 /* ReposListViewController.m in Sources */,
+				3EF3D6941B6D38CE002C5C75 /* GitReposListViewController.m in Sources */,
 				3EB6A3A51B6B8F03001C6235 /* UIProgressView+AFNetworking.m in Sources */,
 				3EB6A39A1B6B8F03001C6235 /* AFNetworkReachabilityManager.m in Sources */,
 				3EB6A39E1B6B8F03001C6235 /* AFURLResponseSerialization.m in Sources */,
-				3EF3D6971B6D3E16002C5C75 /* ReposDetailsViewController.m in Sources */,
+				3EF3D6971B6D3E16002C5C75 /* GitReposDetailsViewController.m in Sources */,
 				3EB6A39C1B6B8F03001C6235 /* AFURLConnectionOperation.m in Sources */,
 				3EB6A3A31B6B8F03001C6235 /* UIButton+AFNetworking.m in Sources */,
 				3EB6A3A11B6B8F03001C6235 /* UIActivityIndicatorView+AFNetworking.m in Sources */,

@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 Cap. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "ReposListViewController.h"
+#import "GitRepoLoginViewController.h"
+#import "GitReposListViewController.h"
 
-@interface ViewController ()
+@interface GitRepoLoginViewController ()
 
 @property (nonatomic , strong) NSURLSession *session;
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
@@ -22,7 +22,7 @@
 
 static NSString * const BaseURLString = @"https://api.github.com/";
 
-@implementation ViewController
+@implementation GitRepoLoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -65,7 +65,7 @@ static NSString * const BaseURLString = @"https://api.github.com/";
         if (repos.count)
         {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            ReposListViewController *reposListViewController = [storyboard instantiateViewControllerWithIdentifier:@"ReposListViewController"];
+            GitReposListViewController *reposListViewController = [storyboard instantiateViewControllerWithIdentifier:@"ReposListViewController"];
             reposListViewController.reposList = repos;
             UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:reposListViewController];
             [self presentViewController:navController animated:YES completion:^{
